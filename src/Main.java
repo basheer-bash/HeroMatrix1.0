@@ -1,37 +1,41 @@
-//import jdk.internal.org.jline.terminal.TerminalBuilder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
-import java.time.Duration;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        System.setProperty("webDriver.chrome.driver","C:\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        //WebDriver firefox = new FirefoxDriver();
-        //WebDriver Edge = new EdgeDriver();
 
+        //Get web driver
+        System.setProperty("webDriver.chrome.driver","C:\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+
+        //New Object
+        WebDriver driver = new ChromeDriver();
         //Edge.get("https://www.heromatrix.online/");
+
+
+        //open the full size window
+        driver.manage().window().maximize();
+
+        //Get the web with driver.get to open it
         driver.get("https://www.heromatrix.online/");
 
 
+
+        //Get the Title of the web
         String Title = driver.getTitle();
         System.out.println("The Title is: " + Title);
 
-        //driver.quit();// close browser
+
 
         //find element
         WebElement login = driver.findElement(By.id("login"));
         WebElement password = driver.findElement(By.id("password"));
 
-        //send keys to the inpts field valuse
-        login.sendKeys("basheer");
+        //send keys to the inputs field values
+        login.sendKeys("bash");
         password.sendKeys("hello");
 
 
@@ -50,13 +54,14 @@ public class Main {
         System.out.println(LengthTitleOfPlayer);
         String actual = LengthTitleOfPlayer.substring(8,LengthTitleOfPlayer.length());
         System.out.println(actual);
-        System.out.println(actual == TitleOfPlayer.getText());
-        System.out.println(actual == login.getText());
+        System.out.println(actual.equals(TitleOfPlayer.getText()));
+        System.out.println(actual.equals(login.getText()));
 
 
 
 
+        // close browser and Driver
+        driver.quit();
 
-        driver.quit();/* close browser */
     }
 }
