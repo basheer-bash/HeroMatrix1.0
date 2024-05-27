@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         //Get web driver
         System.setProperty("webDriver.chrome.driver","C:\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
@@ -22,13 +22,17 @@ public class Main {
         //Get the web with driver.get to open it
         driver.get("https://www.heromatrix.online/");
 
+        //back one page
+        //driver.navigate().back();
+
+
 
 
         //Get the Title of the web
         String Title = driver.getTitle();
         System.out.println("The Title is: " + Title);
 
-
+        driver.getPageSource();
 
         //find element
         WebElement login = driver.findElement(By.id("login"));
@@ -37,6 +41,7 @@ public class Main {
         //send keys to the inputs field values
         login.sendKeys("bash");
         password.sendKeys("hello");
+        Thread.sleep(2000);
 
 
         //Click by driver.find element
