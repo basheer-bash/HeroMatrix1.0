@@ -49,7 +49,7 @@ public class LoginPage {
 
 
     public  void enteruserName(String name){
-                login.clear();
+             login.clear();
                 login.sendKeys(name);
 
     }
@@ -64,6 +64,7 @@ public class LoginPage {
         clickone.click();
 
     }
+
 
 
 }
